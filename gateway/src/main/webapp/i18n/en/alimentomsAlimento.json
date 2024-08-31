@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "alimentomsAlimento": {
+      "home": {
+        "title": "Alimentos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Alimento",
+        "createOrEditLabel": "Create or edit a Alimento",
+        "notFound": "No Alimentos found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Alimento { id }?"
+      },
+      "detail": {
+        "title": "Alimento"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "precio": "Precio",
+      "descripcion": "Descripcion",
+      "foto": "Foto"
+    }
+  },
+  "alimentomsApp": {
+    "alimentomsAlimento": {
+      "created": "A new Alimento is created with identifier { param }",
+      "updated": "A Alimento is updated with identifier { param }",
+      "deleted": "A Alimento is deleted with identifier { param }"
+    }
+  }
+}

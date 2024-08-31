@@ -1,0 +1,32 @@
+{
+  "gatewayApp": {
+    "mascotamsMascota": {
+      "home": {
+        "title": "Mascotas",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Mascota",
+        "createOrEditLabel": "Crear o editar Mascota",
+        "notFound": "Ningún Mascotas encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Mascota { id }?"
+      },
+      "detail": {
+        "title": "Mascota"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "edad": "Edad",
+      "precio": "Precio",
+      "fechaNacimiento": "Fecha Nacimiento",
+      "foto": "Foto"
+    }
+  },
+  "mascotamsApp": {
+    "mascotamsMascota": {
+      "created": "Un nuevo Mascota ha sido creado con el identificador { param }",
+      "updated": "Un Mascota ha sido actualizado con el identificador { param }",
+      "deleted": "Un Mascota ha sido eliminado con el identificador { param }"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+entity Mascota {
+	nombre String required minlength(3) maxlength(50)
+    edad Integer required max(200)
+    precio Float required
+    fechaNacimiento LocalDate
+    foto ImageBlob
+}
+
+// Set pagination options
+paginate Mascota with infinite-scroll
+//paginate Job with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix jhipster
+//angularSuffix * with petStore
