@@ -219,6 +219,7 @@ jhipster
 
 En el menú de JHipster, seleccionar las siguiente opciones:
 
+```shell
 ? What is the base name of your application? **alimentoms**
 ? Which *type* of application would you like to create? **Microservice application**
 ? What is your default Java package name? mx.infotec.mascotams
@@ -235,6 +236,7 @@ En el menú de JHipster, seleccionar las siguiente opciones:
 ? Would you like to enable internationalization support? **Yes**
 ? Please choose the native language of the application **Spanish**
 ? Please choose additional languages to install **English**
+```
 
 ## Paso 11 Corregir la configuración de Spring cloud
 
