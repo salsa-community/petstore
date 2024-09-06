@@ -127,8 +127,14 @@ docker compose -f src/main/docker/mongodb.yml up -d
 
 ## Paso 6 Levantar el proyecto Gateway
 
+Abre una console y ejecuta el siguiente comando para levantar el proyecto **backend** del gateway:
 ```shell
 ./mvnw
+``` 
+
+Abre otra consola y ejecuta el siguiente comando para levanta el proyecto **front-end** en modeo desarrollo:
+
+```shell
 npm start
 ``` 
 
