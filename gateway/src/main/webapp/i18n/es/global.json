@@ -101,7 +101,8 @@
       "open": "Abrir",
       "save": "Guardar",
       "view": "Vista",
-      "show": "Show { otherEntity }"
+      "show": "Show { otherEntity }",
+      "confirm": "Confirmar"
     },
     "detail": {
       "field": "Campo",

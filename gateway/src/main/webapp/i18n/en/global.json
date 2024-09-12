@@ -101,7 +101,8 @@
       "open": "Open",
       "save": "Save",
       "view": "View",
-      "show": "Show { otherEntity }"
+      "show": "Show { otherEntity }",
+      "confirm": "Confirm"
     },
     "detail": {
       "field": "Field",
