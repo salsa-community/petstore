@@ -9,7 +9,9 @@
         "main": "Entities",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
         "mascotamsMascota": "Mascota",
-        "alimentomsAlimento": "Alimento"
+        "alimentomsAlimento": "Alimento",
+        "task": "Task"
+
       },
       "account": {
         "main": "Account",
