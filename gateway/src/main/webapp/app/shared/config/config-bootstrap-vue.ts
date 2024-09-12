@@ -5,6 +5,7 @@ import {
   BCollapse,
   BDropdown,
   BDropdownItem,
+  BTable,
   BForm,
   BFormCheckbox,
   BFormDatepicker,
@@ -55,4 +56,5 @@ export function initBootstrapVue(vue) {
   vue.component('b-form-datepicker', BFormDatepicker);
   vue.component('b-input-group', BInputGroup);
   vue.component('b-input-group-prepend', BInputGroupPrepend);
+  vue.component('b-table', BTable);
 }
