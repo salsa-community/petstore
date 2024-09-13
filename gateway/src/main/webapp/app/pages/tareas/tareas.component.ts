@@ -8,18 +8,18 @@ export default defineComponent({
   name: 'Tareas',
   setup() {
     const tareas = useTareaStore();
-    const nombreTarea: Ref<string> = ref('Valor por defecto');
+    const nombreTarea: Ref<string> = ref('');
     const edad: Ref<number> = ref(0);
     const listaTareas: Ref<Tarea[] | null> = ref(tareas.listaDeTareas);
     const tareaToEdit: Ref<Tarea> = ref(new Tarea());
 
-    const confirmationModal = ref<any>(null);
+    const createTareaModal = ref<any>(null);
 
     return {
       nombreTarea,
       listaTareas,
       edad,
-      confirmationModal,
+      createTareaModal,
       tareaToEdit,
       tareas,
       t$: useI18n().t,
@@ -34,17 +34,17 @@ export default defineComponent({
     },
     openModalHandler(): void {
       this.tareaToEdit = new Tarea();
-      this.confirmationModal.show();
+      this.createTareaModal.show();
     },
     cancelHandler(): void {
-      this.confirmationModal.hide();
+      this.createTareaModal.hide();
     },
     confirmationHandler(): void {
       if (this.listaTareas) {
         this.listaTareas.push(this.tareaToEdit);
         this.tareaToEdit = new Tarea();
       }
-      this.confirmationModal.hide();
+      this.createTareaModal.hide();
     },
   },
 });

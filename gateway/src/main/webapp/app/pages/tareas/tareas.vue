@@ -6,7 +6,7 @@
 
     <b-table :items="listaTareas" head-variant="dark"></b-table>
   </div>
-  <b-modal ref="confirmationModal" id="modal-1" title="BootstrapVue">
+  <b-modal ref="createTareaModal" id="modal-1" title="BootstrapVue">
     <p class="my-4">Ingresa la tarea que deseas agregar</p>
 
     <b-form-input class="mb-5" v-model="tareaToEdit.nombre" placeholder="Ingresa el nombre de la tarea"></b-form-input>
