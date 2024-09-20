@@ -7,44 +7,97 @@ export default defineComponent({
   compatConfig: { MODE: 3 },
   name: 'Tareas',
   setup() {
-    const tareas = useTareaStore();
-    const nombreTarea: Ref<string> = ref('');
-    const edad: Ref<number> = ref(0);
-    const listaTareas: Ref<Tarea[] | null> = ref(tareas.listaDeTareas);
+    const tareaStore = useTareaStore();
+    const listaTareas: Ref<Tarea[] | null> = ref(tareaStore.listaDeTareas);
     const tareaToEdit: Ref<Tarea> = ref(new Tarea());
+    const fields: Ref<string[]> = ref(['id', 'nombre', 'fechaLimite', 'acciones']);
 
     const createTareaModal = ref<any>(null);
+    const deleteTareaModal = ref<any>(null);
+    const editTareaModal = ref<any>(null);
 
     return {
-      nombreTarea,
       listaTareas,
-      edad,
       createTareaModal,
+      deleteTareaModal,
+      editTareaModal,
       tareaToEdit,
-      tareas,
+      tareaStore,
+      fields,
       t$: useI18n().t,
     };
   },
   methods: {
-    addTarea(): void {
-      if (this.listaTareas) {
-        this.listaTareas.push(this.tareaToEdit);
-        this.tareas.updateTareas(this.listaTareas);
-      }
-    },
-    openModalHandler(): void {
+    openCreateModalHandler(): void {
       this.tareaToEdit = new Tarea();
       this.createTareaModal.show();
     },
-    cancelHandler(): void {
-      this.createTareaModal.hide();
+    openEditModalHandler(tarea: any): void {
+      this.tareaToEdit = JSON.parse(JSON.stringify(tarea));
+      this.tareaToEdit.fechaLimite = tarea.fechaLimite;
+      this.editTareaModal.show();
     },
-    confirmationHandler(): void {
+    openDeleteModalHandler(tarea: Tarea): void {
+      this.tareaToEdit = JSON.parse(JSON.stringify(tarea));
+      this.deleteTareaModal.show();
+    },
+    createTareaHandler(): void {
       if (this.listaTareas) {
+        this.tareaToEdit.id = this.keygenerator();
         this.listaTareas.push(this.tareaToEdit);
         this.tareaToEdit = new Tarea();
       }
       this.createTareaModal.hide();
+    },
+    deleteTareaHandler(): void {
+      if (this.listaTareas) {
+        const index = this.listaTareas.findIndex(tarea => tarea.id === this.tareaToEdit.id);
+        this.listaTareas.splice(index, 1);
+        this.deleteTareaModal.hide();
+      }
+    },
+    updateTareaHandler(): void {
+      if (this.listaTareas) {
+        const index = this.listaTareas.findIndex(tarea => tarea.id === this.tareaToEdit.id);
+        this.listaTareas.splice(index, 1, this.tareaToEdit);
+        this.editTareaModal.hide();
+      }
+    },
+    cancelHandler(): void {
+      this.createTareaModal.hide();
+      this.deleteTareaModal.hide();
+      this.editTareaModal.hide();
+    },
+    keygenerator(): string {
+      return new Date().getTime().toString();
+    },
+    isNombreValid(): boolean {
+      if (this.tareaToEdit?.nombre?.length) {
+        return this.tareaToEdit.nombre.length >= 3 && this.tareaToEdit.nombre.length <= 50;
+      }
+      return false;
+    },
+    isDescripcionValid(): boolean {
+      if (this.tareaToEdit?.descripcion?.length) {
+        return this.tareaToEdit.descripcion.length >= 3 && this.tareaToEdit.descripcion.length <= 100;
+      }
+      return false;
+    },
+    isDateValid(): boolean {
+      if (this.tareaToEdit?.fechaLimite) {
+        const now = new Date();
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const current = new Date(
+          this.tareaToEdit.fechaLimite.getFullYear(),
+          this.tareaToEdit.fechaLimite.getMonth(),
+          this.tareaToEdit.fechaLimite.getDate(),
+        );
+        return current >= today;
+      }
+      return false;
+    },
+    isFormValid(): boolean {
+      return this.isNombreValid() && this.isDescripcionValid() && this.isDateValid();
     },
   },
 });

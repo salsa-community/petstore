@@ -11,9 +11,11 @@ import {
   BFormDatepicker,
   BFormGroup,
   BFormInput,
+  BFormTextarea,
   BInputGroup,
   BInputGroupPrepend,
   BLink,
+  BCard,
   BModal,
   BNavItem,
   BNavItemDropdown,
@@ -46,7 +48,10 @@ export function initBootstrapVue(vue) {
   vue.component('b-progress-bar', BProgressBar);
   vue.component('b-form', BForm);
   vue.component('b-form-input', BFormInput);
+  vue.component('b-form-input', BFormInput);
+  vue.component('b-form-textarea', BFormTextarea);
   vue.component('b-form-group', BFormGroup);
+  vue.component('b-card', BCard);
   vue.component('b-form-checkbox', BFormCheckbox);
   vue.component('b-collapse', BCollapse);
   vue.component('b-nav-item', BNavItem);
