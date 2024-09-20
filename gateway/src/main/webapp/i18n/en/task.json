@@ -1,5 +1,24 @@
 {
   "task": {
-    "title": "TaskManager"
+    "title": "TaskManager",
+    "nombre": "Name",
+    "descripcion": "Description",
+    "fechaLimite": "Deadline",
+    "acciones": "Action",
+    "messages": {
+      "nombrePlaceholder": "Insert the task name",
+      "descripcionPlaceholder": "Insert the task description",
+
+      "empty-data": "No records inserted",
+      "new": "New Task",
+      "edit": "Edit task",
+      "delete": "Confirm",
+      "confirmacion": "Are you sure you want to delete this task?"
+    },
+    "validate": {
+      "nombre": "This field is required to be at least 3 characters and cannot be longer than 50 characters",
+      "descripcion": "This field is required to be at least 3 characters and cannot be longer than 100 characters",
+      "fechaLimite": "The date can not be less than the current date"
+    }
   }
 }

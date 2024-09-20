@@ -1,5 +1,5 @@
 <template>
-  <div id="footer" class="footer">
+  <div id="footer" class="navbar fixed-bottom navbar-light bg-light">
     <p v-text="t$('footer')"></p>
   </div>
 </template>

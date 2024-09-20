@@ -1,5 +1,24 @@
 {
   "task": {
-    "title": "Administración de tareas"
+    "title": "Administración de la tarea",
+    "nombre": "Nombre",
+    "descripcion": "Descripción",
+    "fechaLimite": "Fecha limite",
+    "acciones": "Acciones",
+    "messages": {
+      "nombrePlaceholder": "Ingresa el nombre de la tarea",
+      "descripcionPlaceholder": "Ingresa la descripción de su tarea",
+
+      "empty-data": "No tareas registradas",
+      "new": "Nueva tarea",
+      "edit": "Editar la tarea",
+      "delete": "Confirmación",
+      "confirmacion": "Está seguro de borrar la siguiente tarea?"
+    },
+    "validate": {
+      "nombre": "Debe ingresar mínimo 3 caracteres y máximo 50.",
+      "descripcion": "Debe ingresar mínimo 3 caracteres y máximo 100.",
+      "fechaLimite": "La fecha debe ser mayor o igual a la fecha actual"
+    }
   }
 }

@@ -2,58 +2,69 @@
   <div class="container">
     <b-row>
       <h1 v-text="t$('task.title')"></h1>
-      <b-button variant="primary" class="float-right mb-2" @click="openCreateModalHandler">Agregar tarea</b-button>
+      <b-button variant="primary" class="float-right mb-2" @click="openCreateModalHandler">{{ $t('entity.action.create') }}</b-button>
     </b-row>
     <b-row>
       <b-table class="text-center" :items="listaTareas" :fields="fields" head-variant="dark" show-empty>
         <template #empty="scope">
-          <h4 class="text-center">No hay registros para mostrar</h4>
+          <h4 class="text-center">{{ $t('task.messages.empty-data') }}</h4>
         </template>
+        <template #head(nombre)="row">{{ $t('task.nombre') }} </template>
+        <template #head(descripcion)="row">{{ $t('task.descripcion') }} </template>
+        <template #head(fechaLimite)="row">{{ $t('task.fechaLimite') }} </template>
+        <template #head(acciones)="row">{{ $t('task.acciones') }} </template>
+
+        <template #cell(fechaLimite)="row">{{ row.item.fechaLimite.toLocaleDateString() }} </template>
         <template #cell(acciones)="row">
           <b-button variant="primary" class="mr-2" @click="openEditModalHandler(row.item)">{{ $t('entity.action.edit') }}</b-button>
           <b-button variant="danger" @click="openDeleteModalHandler(row.item)">{{ $t('entity.action.delete') }}</b-button>
         </template>
-        <template #cell(fechaLimite)="row">{{ row.item.fechaLimite.toLocaleDateString() }} </template>
       </b-table>
     </b-row>
   </div>
 
   <!-- Crear una nueva tarea-->
-  <b-modal ref="createTareaModal" id="createTareaModal" title="Nueva tarea" header-bg-variant="primary" header-text-variant="white">
+  <b-modal
+    ref="createTareaModal"
+    id="createTareaModal"
+    :title="$t('task.messages.new')"
+    header-bg-variant="primary"
+    header-text-variant="white"
+  >
     <b-card class="border-0">
       <b-form-group
-        label="Nombre"
+        :label="$t('task.nombre')"
         label-for="nombre-id"
         :state="isNombreValid()"
-        invalid-feedback="Debe ingresar mínimo 3 caracteres y máximo 50."
+        :invalid-feedback="$t('task.validate.nombre')"
       >
         <b-form-input
           id="nombre-id"
           :state="isNombreValid()"
           v-model="tareaToEdit.nombre"
-          placeholder="Ingresa el nombre de la tarea"
+          :placeholder="$t('task.messages.nombrePlaceholder')"
         ></b-form-input>
       </b-form-group>
 
       <b-form-group
-        label="Descripción"
+        :label="$t('task.descripcion')"
         label-for="description-id"
         :state="isDescripcionValid()"
-        invalid-feedback="Debe ingresar mínimo 3 caracteres y máximo 100."
+        :invalid-feedback="$t('task.validate.descripcion')"
       >
         <b-form-textarea
           id="description-id"
           :state="isDescripcionValid()"
           v-model="tareaToEdit.descripcion"
-          placeholder="Ingresa la descripción de su tarea"
+          :placeholder="$t('task.messages.descripcionPlaceholder')"
         ></b-form-textarea>
       </b-form-group>
 
       <b-form-group
-        label="Fecha límite"
+        :label="$t('task.fechaLimite')"
         label-for="deadline-id"
         :state="isDateValid()"
-        invalid-feedback="La fecha debe ser mayor o igual a la fecha actual"
+        :invalid-feedback="$t('task.validate.fechaLimite')"
       >
         <b-form-datepicker
           id="deadline-id"
@@ -72,7 +83,13 @@
   </b-modal>
 
   <!-- Editar una tarea-->
-  <b-modal ref="editTareaModal" id="editTareaModal" title="Edición" header-bg-variant="primary" header-text-variant="white">
+  <b-modal
+    ref="editTareaModal"
+    id="editTareaModal"
+    :title="$t('entity.messages.edit')"
+    header-bg-variant="primary"
+    header-text-variant="white"
+  >
     <b-card>
       <b-form-group label="ID" label-for="tarea-id">
         <p id="tarea-id" v-text="tareaToEdit.id"></p>
@@ -128,8 +145,14 @@
   </b-modal>
 
   <!-- Eliminar una tarea-->
-  <b-modal ref="deleteTareaModal" id="deleteTareaModal" title="Confirmación" header-bg-variant="primary" header-text-variant="white">
-    <p class="my-4">Está seguro de borrar la siguiente tarea?</p>
+  <b-modal
+    ref="deleteTareaModal"
+    id="deleteTareaModal"
+    :title="$t('task.messages.delete')"
+    header-bg-variant="primary"
+    header-text-variant="white"
+  >
+    <p class="my-4 text-center">{{ $t('task.messages.confirmacion') }}</p>
 
     <template #modal-footer>
       <b-button variant="outline-danger" @click="cancelHandler()">{{ $t('entity.action.cancel') }}</b-button>
