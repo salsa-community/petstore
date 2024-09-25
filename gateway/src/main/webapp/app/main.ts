@@ -8,6 +8,7 @@ import App from './app.vue';
 import router from './router';
 import { initFortAwesome, initI18N } from './shared/config/config';
 import { initBootstrapVue } from './shared/config/config-bootstrap-vue';
+import { initCustomVue } from './shared/config/config-custom-vue';
 import JhiItemCountComponent from './shared/jhi-item-count.vue';
 import JhiSortIndicatorComponent from './shared/sort/jhi-sort-indicator.vue';
 import LoginService from './account/login.service';
@@ -24,6 +25,7 @@ const pinia = createPinia();
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 initBootstrapVue(Vue);
+initCustomVue(Vue);
 
 Vue.configureCompat({
   MODE: 2,

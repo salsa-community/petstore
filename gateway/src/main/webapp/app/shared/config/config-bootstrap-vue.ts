@@ -5,6 +5,8 @@ import {
   BCollapse,
   BDropdown,
   BDropdownItem,
+  BRow,
+  BCol,
   BTable,
   BForm,
   BFormCheckbox,
@@ -48,7 +50,6 @@ export function initBootstrapVue(vue) {
   vue.component('b-progress-bar', BProgressBar);
   vue.component('b-form', BForm);
   vue.component('b-form-input', BFormInput);
-  vue.component('b-form-input', BFormInput);
   vue.component('b-form-textarea', BFormTextarea);
   vue.component('b-form-group', BFormGroup);
   vue.component('b-card', BCard);
@@ -62,4 +63,6 @@ export function initBootstrapVue(vue) {
   vue.component('b-input-group', BInputGroup);
   vue.component('b-input-group-prepend', BInputGroupPrepend);
   vue.component('b-table', BTable);
+  vue.component('b-row', BRow);
+  vue.component('b-col', BCol);
 }

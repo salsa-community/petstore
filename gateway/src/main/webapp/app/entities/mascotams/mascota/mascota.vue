@@ -1,5 +1,7 @@
 <template>
   <div>
+    <d-label title="Otro titulo para mascotas"></d-label>
+
     <h2 id="page-heading" data-cy="MascotaHeading">
       <span v-text="t$('gatewayApp.mascotamsMascota.home.title')" id="mascota-heading"></span>
       <div class="d-flex justify-content-end">

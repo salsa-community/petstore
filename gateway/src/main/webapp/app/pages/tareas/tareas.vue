@@ -1,8 +1,12 @@
 <template>
   <div class="container">
     <b-row>
-      <h1 v-text="t$('task.title')"></h1>
-      <b-button variant="primary" class="float-right mb-2" @click="openCreateModalHandler">{{ $t('entity.action.create') }}</b-button>
+      <b-col>
+        <d-label :title="t$('task.title')"></d-label>
+      </b-col>
+      <b-col>
+        <b-button variant="primary" class="float-right mb-2" @click="openCreateModalHandler">{{ $t('entity.action.create') }}</b-button>
+      </b-col>
     </b-row>
     <b-row>
       <b-table class="text-center" :items="listaTareas" :fields="fields" head-variant="dark" show-empty>
