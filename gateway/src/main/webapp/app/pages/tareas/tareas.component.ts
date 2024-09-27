@@ -5,8 +5,10 @@ import { useTareaStore } from '@/store';
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
+  emits: ['confirmed'],
   name: 'Tareas',
   setup() {
+    const textLabel: Ref<string> = ref('Hola mundo');
     const tareaStore = useTareaStore();
     const listaTareas: Ref<Tarea[] | null> = ref(tareaStore.listaDeTareas);
     const tareaToEdit: Ref<Tarea> = ref(new Tarea());
@@ -17,6 +19,7 @@ export default defineComponent({
     const editTareaModal = ref<any>(null);
 
     return {
+      textLabel,
       listaTareas,
       createTareaModal,
       deleteTareaModal,
@@ -31,6 +34,9 @@ export default defineComponent({
     openCreateModalHandler(): void {
       this.tareaToEdit = new Tarea();
       this.createTareaModal.show();
+    },
+    clickHandler(): void {
+      console.log('Se ejecuto un click');
     },
     openEditModalHandler(tarea: any): void {
       this.tareaToEdit = JSON.parse(JSON.stringify(tarea));

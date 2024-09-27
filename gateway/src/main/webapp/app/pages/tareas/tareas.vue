@@ -2,10 +2,15 @@
   <div class="container">
     <b-row>
       <b-col>
-        <d-label :title="t$('task.title')"></d-label>
+        <daic-label :title="t$('task.title')"></daic-label>
       </b-col>
       <b-col>
-        <b-button variant="primary" class="float-right mb-2" @click="openCreateModalHandler">{{ $t('entity.action.create') }}</b-button>
+        <daic-button
+          class="float-right"
+          :name="$t('entity.action.create')"
+          @confirmed="openCreateModalHandler"
+          @click="clickHandler"
+        ></daic-button>
       </b-col>
     </b-row>
     <b-row>

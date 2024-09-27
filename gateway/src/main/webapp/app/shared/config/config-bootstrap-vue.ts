@@ -17,6 +17,7 @@ import {
   BInputGroup,
   BInputGroupPrepend,
   BLink,
+  BIcon,
   BCard,
   BModal,
   BNavItem,
@@ -30,11 +31,13 @@ import {
   BProgressBar,
   ToastPlugin,
   VBModal,
+  BootstrapVueIcons
 } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
   vue.use(ToastPlugin);
-
+  vue.use(BootstrapVueIcons);
+  
   vue.component('b-badge', BBadge);
   vue.component('b-dropdown', BDropdown);
   vue.component('b-dropdown-item', BDropdownItem);
@@ -65,4 +68,5 @@ export function initBootstrapVue(vue) {
   vue.component('b-table', BTable);
   vue.component('b-row', BRow);
   vue.component('b-col', BCol);
+  vue.component('b-icon', BIcon);
 }
