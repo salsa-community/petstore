@@ -17,9 +17,10 @@ El componente `tarea-edit.vue` tiene como propósito el registro, actualización
 
 1. Deberá de tener una propiedad llamada `tarea` de tipo `ITarea` que no podrá ser null o undefined.
 2. Deberá de tener una propiedad llamada `readonly` de tipo Boolean y que tendrá un valor por defecto de `false`.
-3. Deberá de emitir el evento `update:tarea` cuando el usuario el usuario quiera guardar el registro que ha capturado.
-4. Deberá de emitir el evento `cancel:tarea` cuando el usuario el usuario quiera cancelar la edición, creación o visualización de una tarea.
-5. El registro, actualización y visualización de la tarea deberá de cumplir las mismas reglas definidas en el documento [Especificación de una bandeja de tareas](EJERCICIO_1.md)
+3. Si la variable `readonly` es igual a `true`, todos los campos deberán de mostrarse en sólo lectura, de otro modo, se debe permitir editar.
+4. Deberá de emitir el evento `update:tarea` cuando el usuario el usuario quiera guardar el registro que ha capturado.
+5. Deberá de emitir el evento `cancel:tarea` cuando el usuario el usuario quiera cancelar la edición, creación o visualización de una tarea.
+6. El registro, actualización y visualización de la tarea deberá de cumplir las mismas reglas definidas en el documento [Especificación de una bandeja de tareas](EJERCICIO_1.md)
 
 
 ## Ejemplo de uso:
