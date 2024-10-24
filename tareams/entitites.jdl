@@ -1,0 +1,14 @@
+entity Tarea {
+    nombre String
+    descripcion String
+    fechaLimite Instant
+}
+// Set pagination options
+paginate Tarea with pagination
+//paginate Job with pagination
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix jhipster
+//angularSuffix * with petStore

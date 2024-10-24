@@ -1,0 +1,29 @@
+{
+  "annotations": {
+    "changelogDate": "20241024164236"
+  },
+  "applications": "*",
+  "clientRootFolder": "tareams",
+  "databaseType": "mongodb",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaLimite",
+      "fieldType": "Instant"
+    }
+  ],
+  "microserviceName": "tareams",
+  "name": "Tarea",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
